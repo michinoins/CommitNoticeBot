@@ -29,9 +29,18 @@ fetch('https://api.github.com/graphql', {
       'Authorization': `Bearer `,
     },
   }).then(res => res.text())
-    .then(body => console.log(body)) // {"data":{"repository":{"issues":{"totalCount":247}}}}
+    .then(body => console.log(body)) 
     .catch(error => console.error(error));
 
+// type Shop{
+//   id: ID!
+//   name: String!
+// }
+// とobject型を指定し,
 
+// type Query {
+//   shops: [Shop]!
+// }
+// とQueryインターフェースに追加できる、すごい
 
 
