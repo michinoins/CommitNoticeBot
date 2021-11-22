@@ -1,2 +1,5 @@
 # CommitNoticeBot
-get commit from Github using Graph QL and notice by LINE bot
+
+
+# Note
+The LINEbot will notify you of commit information.
