@@ -27,7 +27,7 @@ query($userName:String!) {
     },
   })
 
-  
+// アカウント情報取得
 async function getAccountData(){
   const response = await client.post('graphql', { query,variables:{"userName":"michinoins"}})
   console.log(JSON.stringify(response.data))
