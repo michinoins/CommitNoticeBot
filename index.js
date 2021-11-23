@@ -1,5 +1,4 @@
-const fetch = require('node-fetch');
-
+const axios = require("axios")
 
 // スキーマを定義する
 const query = `
@@ -19,18 +18,19 @@ query($userName:String!) {
     }
   }`
 
-
-
-   
-fetch('https://api.github.com/graphql', {
-    method: 'POST',
-    body: JSON.stringify({query}),
+  const client = axios.create({
+    baseURL: 'https://api.github.com/',
     headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
       'Authorization': `Bearer `,
     },
-  }).then(res => res.text())
-    .then(body => console.log(body)) 
-    .catch(error => console.error(error));
+  })
 
+  
+async function getAccountData(){
+  const response = await client.post('graphql', { query,variables:{"userName":"michinoins"}})
+  console.log(JSON.stringify(response.data))
+}
 
-
+getAccountData()
